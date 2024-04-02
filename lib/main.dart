@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
           title: 'Winter Foodly',
           theme: ThemeData(
               scaffoldBackgroundColor: kOffWhite,
+              appBarTheme: const AppBarTheme(
+                elevation: 0,
+                backgroundColor: kOffWhite,
+              ),
               iconTheme: const IconThemeData(color: kDark),
               primarySwatch: Colors.grey),
           home: child,
