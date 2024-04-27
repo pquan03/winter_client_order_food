@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:winter_food/common/sizes.dart';
 import 'package:winter_food/constants/constants.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -8,7 +9,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: const EdgeInsets.symmetric(horizontal: WSizes.spaceBtwItems),
       height: 110.h,
       width: width,
       color: kOffWhite,

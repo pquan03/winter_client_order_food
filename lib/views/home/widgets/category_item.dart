@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:winter_food/common/reusable_text.dart';
 import 'package:winter_food/constants/constants.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -34,11 +35,7 @@ class CategoryItem extends StatelessWidget {
             const SizedBox(
               height: 3,
             ),
-            Text(
-              category['title'],
-              style: TextStyle(
-                  fontSize: 12.h, color: kDark, fontWeight: FontWeight.normal),
-            )
+            ReusableText(text: category['title'])
           ],
         ),
       ),

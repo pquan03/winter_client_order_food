@@ -14,7 +14,7 @@ class CategoryList extends StatelessWidget {
     final controller = Get.put(CategoryController());
     return Container(
       height: 80.h,
-      padding: EdgeInsets.only(left: 20.w, top: 10.h),
+      padding: EdgeInsets.only(left: 12.w, top: 10.h),
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) {
