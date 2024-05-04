@@ -3,11 +3,12 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/reusable_text.dart';
 import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/models/restaurant.dart';
 
 class RestaurantTile extends StatelessWidget {
   const RestaurantTile({super.key, required this.restaurant});
 
-  final Map<String, dynamic> restaurant;
+  final RestaurantModel restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class RestaurantTile extends StatelessWidget {
                     width: 70.w,
                     height: 70.h,
                     child: Image.network(
-                      restaurant['logoUrl'],
+                      restaurant.logoUrl,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -45,7 +46,7 @@ class RestaurantTile extends StatelessWidget {
                       decoration:
                           BoxDecoration(color: kGrayLight.withOpacity(0.5)),
                       child: RatingBarIndicator(
-                        rating: restaurant['rating'] / 1.0,
+                        rating: restaurant.rating / 1.0,
                         itemBuilder: (_, index) => const Icon(
                           Icons.star,
                           color: Colors.amber,
@@ -72,7 +73,7 @@ class RestaurantTile extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ReusableText(text: restaurant['title']),
+                        ReusableText(text: restaurant.title),
                         Row(
                           children: [
                             ClipRRect(
@@ -114,13 +115,13 @@ class RestaurantTile extends StatelessWidget {
                     ),
                     // Delivery time
                     ReusableText(
-                      text: 'Delivery time ${restaurant['time']}',
+                      text: 'Delivery time ${restaurant.time}',
                       color: kGray,
                       fontSize: 10.sp,
                     ),
                     // Address
                     ReusableText(
-                      text: restaurant['coords']['address'],
+                      text: restaurant.coords.address,
                       color: kGray,
                       fontSize: 10.sp,
                     ),

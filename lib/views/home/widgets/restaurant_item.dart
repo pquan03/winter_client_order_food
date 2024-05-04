@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/sizes.dart';
 import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/models/restaurant.dart';
 
 class RestaurantItem extends StatelessWidget {
   const RestaurantItem({
@@ -10,7 +11,7 @@ class RestaurantItem extends StatelessWidget {
     required this.restaurant,
   });
 
-  final Map<String, dynamic> restaurant;
+  final RestaurantModel restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class RestaurantItem extends StatelessWidget {
                     height: 112.h,
                     width: double.infinity,
                     child: Image.network(
-                      restaurant['imageUrl'],
+                      restaurant.imageUrl,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
@@ -57,7 +58,7 @@ class RestaurantItem extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50.r),
                             child: Image.network(
-                              restaurant['logoUrl'],
+                              restaurant.logoUrl,
                               fit: BoxFit.cover,
                               width: 20.w,
                               height: 20.h,
@@ -75,7 +76,7 @@ class RestaurantItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(restaurant['title'],
+                Text(restaurant.title,
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
                 Row(
@@ -86,7 +87,7 @@ class RestaurantItem extends StatelessWidget {
                             fontSize: 12,
                             color: kGray,
                             fontWeight: FontWeight.w500)),
-                    Text(restaurant['time'],
+                    Text(restaurant.time,
                         style: TextStyle(
                             fontSize: 12,
                             color: kGray,
@@ -96,7 +97,7 @@ class RestaurantItem extends StatelessWidget {
                 Row(
                   children: [
                     RatingBarIndicator(
-                      rating: restaurant['rating'] / 1.0,
+                      rating: restaurant.rating / 1.0,
                       itemBuilder: (_, index) => const Icon(
                         Icons.star,
                         color: kPrimary,
@@ -108,7 +109,7 @@ class RestaurantItem extends StatelessWidget {
                       width: WSizes.spaceBtwItems,
                     ),
                     Text(
-                      '${restaurant['ratingCount']} reviews and ratings',
+                      '${restaurant.ratingCount} reviews and ratings',
                       style: TextStyle(fontSize: 12, color: kGray),
                     )
                   ],

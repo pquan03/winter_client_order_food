@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:winter_food/models/category.dart';
 import 'package:winter_food/views/categories/category_page.dart';
 
 class CategoryTile extends StatelessWidget {
@@ -9,7 +10,7 @@ class CategoryTile extends StatelessWidget {
     required this.category,
   });
 
-  final dynamic category;
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +18,15 @@ class CategoryTile extends StatelessWidget {
       onTap: () {
         Get.to(
             () => CategoryPage(
-                  title: category['title'],
+                  title: category.title,
                 ),
             transition: Transition.fadeIn);
       },
       leading: CircleAvatar(
         radius: 20.r,
-        backgroundImage: NetworkImage(category['imageUrl']),
+        backgroundImage: NetworkImage(category.imageUrl),
       ),
-      title: Text(category['title']),
+      title: Text(category.title),
       trailing: const Icon(Icons.arrow_forward_ios),
     );
   }

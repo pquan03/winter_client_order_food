@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/custom_appbar.dart';
@@ -13,7 +12,7 @@ import 'package:winter_food/views/home/widgets/category_list.dart';
 import 'package:winter_food/views/home/widgets/food_list.dart';
 import 'package:winter_food/views/home/widgets/heading_section.dart';
 import 'package:winter_food/views/home/widgets/restaurant_list.dart';
-import 'package:winter_food/views/restaurant/nearby_restaurant.dart';
+import 'package:winter_food/views/restaurant/all_nearby_restaurant.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -36,7 +35,7 @@ class HomePage extends StatelessWidget {
             // Nearby Restaurants
             HeadingSection(
               title: 'Nearby Restaurants',
-              onTap: () => Get.to(() => const NearbyRestaurants()),
+              onTap: () => Get.to(() => const AllNearbyRestaurants()),
             ),
             const SizedBox(
               height: 10,

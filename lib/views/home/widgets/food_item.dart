@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/sizes.dart';
 import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/models/food.dart';
 
 class FoodItem extends StatelessWidget {
   const FoodItem({
@@ -9,7 +10,7 @@ class FoodItem extends StatelessWidget {
     required this.food,
   });
 
-  final Map<String, dynamic> food;
+  final FoodModel food;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class FoodItem extends StatelessWidget {
                 height: 112.h,
                 width: double.infinity,
                 child: Image.network(
-                  food['imageUrl'],
+                  food.imageUrl,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -52,11 +53,11 @@ class FoodItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(food['title'],
+                    Text(food.title,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w500)),
                     Text(
-                      '\$ ${food['price']}',
+                      '\$ ${food.price}',
                       style: TextStyle(
                           color: kPrimary,
                           fontSize: 14,
@@ -66,13 +67,13 @@ class FoodItem extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Delivery time',
+                  children: [
+                    const Text('Delivery time',
                         style: TextStyle(
                             fontSize: 12,
                             color: kGray,
                             fontWeight: FontWeight.w500)),
-                    Text('30 min',
+                    Text(food.time,
                         style: TextStyle(
                             fontSize: 12,
                             color: kGray,
