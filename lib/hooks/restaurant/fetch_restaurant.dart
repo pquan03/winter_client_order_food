@@ -17,14 +17,12 @@ FetchHook useFetchRestaurants(String code) {
     try {
       Uri url = Uri.parse('$appBaseUrl/restaurant/$code');
       final response = await http.get(url);
-      print(response.statusCode);
       if (response.statusCode == 200) {
         listRestaurants.value = restaurantModelFromJson(response.body);
       } else {
         apiError.value = apiErrorFromJson(response.body);
       }
     } catch (err) {
-      print(err);
       error.value = err as Exception;
     } finally {
       isLoading.value = false;

@@ -47,9 +47,10 @@ class TheFastestFood extends StatelessWidget {
             separatorBuilder: (_, __) => SizedBox(height: 10.h),
             itemBuilder: (_, index) {
               final food = foods[index];
-              return FoodTile(
-                food: food,
-              );
+              // return FoodTile(
+              //   food: food,
+              // );
+              return Container();
             },
           ),
         ),

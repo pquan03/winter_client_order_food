@@ -9,47 +9,47 @@ List<FoodModel> foodModelFromJson(String str) => List<FoodModel>.from(json.decod
 String foodModelToJson(List<FoodModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class FoodModel {
-    final String id;
-    final String title;
-    final List<String> foodTags;
-    final List<String> foodType;
-    final String code;
-    final bool isAvailable;
-    final String restaurant;
-    final double rating;
-    final String ratingCount;
-    final String description;
-    final double price;
-    final List<Additive> additives;
-    final String imageUrl;
-    final int v;
-    final String category;
-    final String time;
+    final String? id;
+    final String? title;
+    final String? time;
+    final List<String>? foodTags;
+    final String? category;
+    final List<String?>? foodType;
+    final String? code;
+    final bool? isAvailable;
+    final String? restaurant;
+    final double? rating;
+    final String? ratingCount;
+    final String? description;
+    final double? price;
+    final List<Additive>? additives;
+    final List<String>? imageUrl;
 
     FoodModel({
-        required this.id,
-        required this.title,
-        required this.foodTags,
-        required this.foodType,
-        required this.code,
-        required this.isAvailable,
-        required this.restaurant,
-        required this.rating,
-        required this.ratingCount,
-        required this.description,
-        required this.price,
-        required this.additives,
-        required this.imageUrl,
-        required this.v,
-        required this.category,
-        required this.time,
+        this.id,
+        this.title,
+        this.time,
+        this.foodTags,
+        this.category,
+        this.foodType,
+        this.code,
+        this.isAvailable,
+        this.restaurant,
+        this.rating,
+        this.ratingCount,
+        this.description,
+        this.price,
+        this.additives,
+        this.imageUrl,
     });
 
     factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
         id: json["_id"],
         title: json["title"],
-        foodTags: List<String>.from(json["foodTags"].map((x) => x)),
-        foodType: List<String>.from(json["foodType"].map((x) => x)),
+        time: json["time"],
+        foodTags: json["foodTags"] == null ? [] : List<String>.from(json["foodTags"]!.map((x) => x)),
+        category: json["category"],
+        foodType: json["foodType"] == null ? [] : List<String?>.from(json["foodType"]!.map((x) => x)),
         code: json["code"],
         isAvailable: json["isAvailable"],
         restaurant: json["restaurant"],
@@ -57,18 +57,17 @@ class FoodModel {
         ratingCount: json["ratingCount"],
         description: json["description"],
         price: json["price"]?.toDouble(),
-        additives: List<Additive>.from(json["additives"].map((x) => Additive.fromJson(x))),
-        imageUrl: json["imageUrl"],
-        v: json["__v"],
-        category: json["category"],
-        time: json["time"],
+        additives: json["additives"] == null ? [] : List<Additive>.from(json["additives"]!.map((x) => Additive.fromJson(x))),
+        imageUrl: json["imageUrl"] == null ? [] : List<String>.from(json["imageUrl"]!.map((x) => x)),
     );
 
     Map<String, dynamic> toJson() => {
         "_id": id,
         "title": title,
-        "foodTags": List<dynamic>.from(foodTags.map((x) => x)),
-        "foodType": List<dynamic>.from(foodType.map((x) => x)),
+        "time": time,
+        "foodTags": foodTags == null ? [] : List<dynamic>.from(foodTags!.map((x) => x)),
+        "category": category,
+        "foodType": foodType == null ? [] : List<dynamic>.from(foodType!.map((x) => x)),
         "code": code,
         "isAvailable": isAvailable,
         "restaurant": restaurant,
@@ -76,23 +75,20 @@ class FoodModel {
         "ratingCount": ratingCount,
         "description": description,
         "price": price,
-        "additives": List<dynamic>.from(additives.map((x) => x.toJson())),
-        "imageUrl": imageUrl,
-        "__v": v,
-        "category": category,
-        "time": time,
+        "additives": additives == null ? [] : List<dynamic>.from(additives!.map((x) => x.toJson())),
+        "imageUrl": imageUrl == null ? [] : List<dynamic>.from(imageUrl!.map((x) => x)),
     };
 }
 
 class Additive {
-    final int id;
-    final String title;
-    final String price;
+    final int? id;
+    final String? title;
+    final String? price;
 
     Additive({
-        required this.id,
-        required this.title,
-        required this.price,
+        this.id,
+        this.title,
+        this.price,
     });
 
     factory Additive.fromJson(Map<String, dynamic> json) => Additive(

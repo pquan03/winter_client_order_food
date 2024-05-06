@@ -1,4 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:winter_food/common/snackbar_custom.dart';
 import 'package:winter_food/constants/constants.dart';
 import 'package:winter_food/models/api_error.dart';
 import 'package:winter_food/models/food.dart';
@@ -15,7 +16,7 @@ FetchHook useFetchFoods(String code) {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('$appBaseUrl/food/reconmendation/$code');
+      Uri url = Uri.parse('$appBaseUrl/food/random/$code');
       final response = await http.get(url);
       if (response.statusCode == 200) {
         listFoods.value = foodModelFromJson(response.body);
@@ -23,7 +24,7 @@ FetchHook useFetchFoods(String code) {
         apiError.value = apiErrorFromJson(response.body);
       }
     } catch (err) {
-      error.value = err as Exception;
+      WLoader.errorSnackBar(title: 'Error', message: err.toString());
     } finally {
       isLoading.value = false;
     }

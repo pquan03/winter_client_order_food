@@ -38,7 +38,7 @@ class FoodItem extends StatelessWidget {
                 height: 112.h,
                 width: double.infinity,
                 child: Image.network(
-                  food.imageUrl,
+                  food.imageUrl!.first,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -53,7 +53,7 @@ class FoodItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(food.title,
+                    Text(food.title!,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w500)),
                     Text(
@@ -73,7 +73,7 @@ class FoodItem extends StatelessWidget {
                             fontSize: 12,
                             color: kGray,
                             fontWeight: FontWeight.w500)),
-                    Text(food.time,
+                    Text(food.time ?? 'N/A',
                         style: TextStyle(
                             fontSize: 12,
                             color: kGray,

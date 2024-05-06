@@ -4,7 +4,9 @@ import 'package:get/route_manager.dart';
 import 'package:winter_food/constants/constants.dart';
 import 'package:winter_food/views/entrypoint.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 Widget defaultHome = MainScreen();
 
@@ -36,5 +38,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

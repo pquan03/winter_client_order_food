@@ -3,11 +3,12 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/reusable_text.dart';
 import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/models/food.dart';
 
 class FoodTile extends StatelessWidget {
   const FoodTile({super.key, required this.food});
 
-  final Map<String, dynamic> food;
+  final FoodModel food;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class FoodTile extends StatelessWidget {
                     width: 70.w,
                     height: 70.h,
                     child: Image.network(
-                      food['imageUrl'],
+                      food.imageUrl!.first,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -45,7 +46,7 @@ class FoodTile extends StatelessWidget {
                       decoration:
                           BoxDecoration(color: kGrayLight.withOpacity(0.5)),
                       child: RatingBarIndicator(
-                        rating: food['rating'] / 1.0,
+                        rating: food.rating! / 1.0,
                         itemBuilder: (_, index) => const Icon(
                           Icons.star,
                           color: Colors.amber,
@@ -72,7 +73,7 @@ class FoodTile extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ReusableText(text: food['title']),
+                        ReusableText(text: food.title!),
                         Row(
                           children: [
                             ClipRRect(
@@ -100,7 +101,7 @@ class FoodTile extends StatelessWidget {
                                     color: kPrimary,
                                     borderRadius: BorderRadius.circular(50.w)),
                                 child: Text(
-                                  '\$ ${food['price']}',
+                                  '\$ ${food.price}',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12.sp,
@@ -114,7 +115,7 @@ class FoodTile extends StatelessWidget {
                     ),
                     // Delivery time
                     ReusableText(
-                      text: 'Delivery time ${food['time']}',
+                      text: 'Delivery time ${food.time}',
                       color: kGray,
                       fontSize: 10.sp,
                     ),
@@ -123,13 +124,13 @@ class FoodTile extends StatelessWidget {
                       height: 20.h,
                       width: double.infinity,
                       child: ListView.separated(
-                        itemCount: (food['foodTags'] as List).length,
+                        itemCount: (food.foodTags as List).length,
                         separatorBuilder: (_, __) => const SizedBox(
                           width: 5,
                         ),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (_, index) {
-                          final foodTag = food['foodTags'][index];
+                          final foodTag = food.foodTags![index];
                           return InkWell(
                             onTap: () {},
                             child: Container(
