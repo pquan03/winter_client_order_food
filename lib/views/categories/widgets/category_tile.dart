@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/models/category.dart';
-import 'package:winter_food/views/categories/category_page.dart';
+import 'package:winter_food/views/foods/foods_by_category.dart';
 
 class CategoryTile extends StatelessWidget {
   const CategoryTile({
@@ -16,11 +16,8 @@ class CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Get.to(
-            () => CategoryPage(
-                  title: category.title,
-                ),
-            transition: Transition.fadeIn);
+        Get.to(() => FoodByCategory(
+            categoryId: category.id, categoryTitle: category.title));
       },
       leading: CircleAvatar(
         radius: 20.r,

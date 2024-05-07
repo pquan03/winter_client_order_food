@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:winter_food/common/background_container.dart';
 import 'package:winter_food/common/shimmer/restaurant_vertical_shimmer.dart';
 import 'package:winter_food/constants/constants.dart';
@@ -28,7 +29,7 @@ class AllNearbyRestaurants extends HookWidget {
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            Get.back();
           },
         ),
         title:
@@ -47,19 +48,18 @@ class AllNearbyRestaurants extends HookWidget {
         color: Colors.white,
         child: Padding(
           padding: EdgeInsets.all(8.w),
-          child: isLoading ?
-          RestaurantVerticalShimmer()
-          :
-          ListView.separated(
-            itemCount: listRestaurants!.length,
-            separatorBuilder: (_, __) => SizedBox(height: 10.h),
-            itemBuilder: (_, index) {
-              final restaurant = listRestaurants[index];
-              return RestaurantTile(
-                restaurant: restaurant,
-              );
-            },
-          ),
+          child: isLoading
+              ? RestaurantVerticalShimmer()
+              : ListView.separated(
+                  itemCount: listRestaurants!.length,
+                  separatorBuilder: (_, __) => SizedBox(height: 10.h),
+                  itemBuilder: (_, index) {
+                    final restaurant = listRestaurants[index];
+                    return RestaurantTile(
+                      restaurant: restaurant,
+                    );
+                  },
+                ),
         ),
       ),
     );
