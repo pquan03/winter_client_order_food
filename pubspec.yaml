@@ -42,6 +42,7 @@ dependencies:
   firebase_core: ^2.24.2
   country_picker: ^2.0.23
   iconsax: ^0.0.8
+  phone_otp_verification: ^1.0.3
 
 dev_dependencies:
   flutter_test:

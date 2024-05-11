@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:winter_food/common/reusable_text.dart';
 import 'package:winter_food/constants/constants.dart';
 import 'package:winter_food/models/food.dart';
+import 'package:winter_food/views/foods/food_detail.dart';
 
 class FoodTile extends StatelessWidget {
   const FoodTile({super.key, required this.food});
@@ -14,7 +16,9 @@ class FoodTile extends StatelessWidget {
   Widget build(BuildContext context) {
     // final isOpen = restaurant['isAvailable'] as bool;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => FoodDetail(food: food));
+      },
       child: Container(
         clipBehavior: Clip.hardEdge,
         height: 70.h,
