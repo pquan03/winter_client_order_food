@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/models/login_response.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({
     super.key,
-    required this.proflePic,
-    required this.name,
-    required this.email,
+    required this.user,
   });
 
-  final String proflePic;
-  final String name;
-  final String email;
+  final LoginResponse user;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,8 @@ class UserInfo extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 25.r,
-            backgroundImage: AssetImage(proflePic),
+            backgroundColor: kGrayLight,
+            backgroundImage: NetworkImage(user.profilePic!),
           ),
           SizedBox(width: 10.w),
           Expanded(
@@ -37,13 +35,13 @@ class UserInfo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(name,
+                  Text(user.username ?? 'winter',
                       style: TextStyle(
                           color: kGray,
                           fontSize: 18.sp,
                           fontWeight: FontWeight.bold)),
                   // Email
-                  Text(email,
+                  Text(user.email ?? 'winter@winter.com',
                       style: TextStyle(
                         color: kGray,
                         fontSize: 14.sp,

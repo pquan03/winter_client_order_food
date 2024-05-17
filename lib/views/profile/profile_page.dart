@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:winter_food/common/custom_container.dart';
 import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/controllers/login_controller.dart';
+import 'package:winter_food/models/login_response.dart';
+import 'package:winter_food/views/auth/%20login_redirect.dart';
 import 'package:winter_food/views/profile/widgets/profile_app_bar.dart';
 import 'package:winter_food/views/profile/widgets/user_info.dart';
 
@@ -12,6 +17,16 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginResponse? user;
+    final controller = Get.put(LoginController());
+    final box = GetStorage();
+    String? token = box.read('token');
+    if (token != null) {
+      user = controller.getUserInfo();
+    } else {
+      return const LoginRedirect();
+    }
+
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.h),
@@ -22,9 +37,8 @@ class ProfilePage extends StatelessWidget {
                 containerContent: Column(
           children: [
             UserInfo(
-                proflePic: 'assets/images/profile.jpg',
-                name: 'John Doe',
-                email: 'winter@winter.com'),
+              user: user!,
+            ),
             Container(
               height: 220.h,
               color: kLightWhite,

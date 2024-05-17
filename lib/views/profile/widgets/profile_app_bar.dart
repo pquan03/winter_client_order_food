@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/constants/constants.dart';
-import 'package:winter_food/views/auth/login.dart';
+import 'package:winter_food/controllers/login_controller.dart';
 
 class ProfileAppbar extends StatelessWidget {
   const ProfileAppbar({
@@ -13,13 +13,12 @@ class ProfileAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return AppBar(
       backgroundColor: kOffWhite,
       elevation: 0,
       leading: GestureDetector(
-        onTap: () {
-          Get.offAll(() => const LoginPage());
-        },
+        onTap: controller.logout,
         child: Icon(AntDesign.logout, size: 18.h),
       ),
       actions: [

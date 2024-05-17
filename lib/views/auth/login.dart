@@ -19,6 +19,7 @@ class LoginPage extends HookWidget {
     final controller = Get.put(LoginController());
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           'Winter Food Family',
           style: TextStyle(

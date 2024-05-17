@@ -56,6 +56,18 @@ class RegisterPage extends HookWidget {
                       height: 20.h,
                     ),
                     AuthTextField(
+                      controller: controller.usernameController,
+                      hintText: 'Enter your username',
+                      keyboardType: TextInputType.text,
+                      prefixIcon: Icon(
+                        CupertinoIcons.person,
+                        color: kGray,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    AuthTextField(
                       controller: controller.passwordController,
                       hintText: 'Enter your password',
                       textInputAction: TextInputAction.done,
@@ -83,7 +95,7 @@ class RegisterPage extends HookWidget {
                       controller: controller.confirmPasswordController,
                       hintText: 'Enter password again',
                       textInputAction: TextInputAction.done,
-                      obscureText: controller.isPasswordVisible.value,
+                      obscureText: controller.isConfirmPasswordVisible.value,
                       keyboardType: TextInputType.visiblePassword,
                       prefixIcon: Icon(
                         CupertinoIcons.lock_circle,
