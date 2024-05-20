@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/theme/theme.dart';
 import 'package:winter_food/views/entrypoint.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-Widget defaultHome = MainScreen();
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -23,18 +21,13 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Winter Foodly',
-          theme: ThemeData(
-              scaffoldBackgroundColor: kOffWhite,
-              appBarTheme: const AppBarTheme(
-                elevation: 0,
-                backgroundColor: kOffWhite,
-              ),
-              iconTheme: const IconThemeData(color: kDark),
-              primarySwatch: Colors.grey),
+          themeMode: ThemeMode.system,
+          theme: TAppTheme.lightTheme,
+          darkTheme: TAppTheme.darkTheme,
           home: child,
         );
       },
-      child: defaultHome,
+      child: MainScreen(),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
@@ -27,10 +26,12 @@ class CustomTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(6.h),
       padding: EdgeInsets.only(left: 6.h),
-      decoration: BoxDecoration(
-          border: Border.all(color: kSecondary, width: 0.4),
-          borderRadius: BorderRadius.circular(9.r)),
       child: TextFormField(
+          style: TextStyle(
+            color: TColors.grey,
+            fontWeight: FontWeight.normal,
+            fontSize: 12,
+          ),
           controller: controller,
           keyboardType: keyboardType,
           onEditingComplete: onEditingComplete,
@@ -39,8 +40,6 @@ class CustomTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
-            border: InputBorder.none,
             suffixIcon: suffixIcon,
           )),
     );

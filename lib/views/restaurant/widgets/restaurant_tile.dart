@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/reusable_text.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/restaurant.dart';
 
 class RestaurantTile extends StatelessWidget {

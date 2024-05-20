@@ -5,7 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/custom_appbar.dart';
 import 'package:winter_food/common/custom_container.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/sizes.dart';
 import 'package:winter_food/views/foods/the_fastest_food.dart';
 import 'package:winter_food/views/foods/try_food_new.dart';
 import 'package:winter_food/views/home/widgets/category_list.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kPrimary,
+        backgroundColor: TColors.primary,
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(130.h), child: const CustomAppBar()),
         body: SafeArea(
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
             // Category List
             CategoryList(),
             const SizedBox(
-              height: 10,
+              height: TSizes.spaceBtwItems,
             ),
             // Nearby Restaurants
             HeadingSection(
@@ -38,11 +39,11 @@ class HomePage extends StatelessWidget {
               onTap: () => Get.to(() => const AllNearbyRestaurants()),
             ),
             const SizedBox(
-              height: 10,
+              height: TSizes.spaceBtwItems,
             ),
             RestaurantList(),
             const SizedBox(
-              height: 10,
+              height: TSizes.spaceBtwItems,
             ),
             // Try Something New
             HeadingSection(
@@ -50,11 +51,11 @@ class HomePage extends StatelessWidget {
               onTap: () => Get.to(() => const TryFoodNew()),
             ),
             const SizedBox(
-              height: 10,
+              height: TSizes.spaceBtwItems,
             ),
             FoodList(),
             const SizedBox(
-              height: 10,
+              height: TSizes.spaceBtwItems,
             ),
             //Fastest food closer to you
             HeadingSection(
@@ -62,7 +63,7 @@ class HomePage extends StatelessWidget {
               onTap: () => Get.to(() => const TheFastestFood()),
             ),
             const SizedBox(
-              height: 10,
+              height: TSizes.spaceBtwItems,
             ),
             FoodList(),
           ],

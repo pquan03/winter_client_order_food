@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 
 class BackgroundContainer extends StatelessWidget {
   const BackgroundContainer({super.key, required this.child, this.color = kPrimary});

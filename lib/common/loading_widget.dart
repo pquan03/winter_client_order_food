@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});

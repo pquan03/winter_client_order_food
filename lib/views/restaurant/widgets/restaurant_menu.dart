@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:winter_food/common/shimmer/restaurant_horizontal_shimmer.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/hooks/food/fetch_food_by_restaurant.dart';
 import 'package:winter_food/views/foods/widgets/food_title.dart';
 

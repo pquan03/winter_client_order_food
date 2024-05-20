@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/sizes.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/restaurant.dart';
 
 class RestaurantItem extends StatelessWidget {
@@ -77,21 +78,23 @@ class RestaurantItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(restaurant.title,
-                    style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: TColors.dark)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Delivery under',
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: kGray,
-                            fontWeight: FontWeight.w500)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium!
+                            .copyWith(color: TColors.darkGrey)),
                     Text(restaurant.time,
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: kGray,
-                            fontWeight: FontWeight.w500)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium!
+                            .copyWith(color: TColors.darkGrey)),
                   ],
                 ),
                 Row(
@@ -110,7 +113,10 @@ class RestaurantItem extends StatelessWidget {
                     ),
                     Text(
                       '${restaurant.ratingCount} reviews and ratings',
-                      style: TextStyle(fontSize: 12, color: kGray),
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelMedium!
+                          .copyWith(color: TColors.darkGrey),
                     )
                   ],
                 )

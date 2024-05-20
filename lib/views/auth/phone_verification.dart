@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phone_otp_verification/phone_verification.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 
 class PhoneVerificationPage extends StatelessWidget {
   const PhoneVerificationPage({super.key});

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:winter_food/common/custom_container.dart';
 import 'package:winter_food/common/custom_text_field.dart';
 import 'package:winter_food/common/loading_widget.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/search_food_controller.dart';
 import 'package:winter_food/views/search/widgets/search_result.dart';
 

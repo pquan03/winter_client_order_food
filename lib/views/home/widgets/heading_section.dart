@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 
 class HeadingSection extends StatelessWidget {
   const HeadingSection({
@@ -23,8 +24,10 @@ class HeadingSection extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title,
-              style:
-                  const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: TColors.dark)),
           if (isShowAllIcon)
             InkWell(
               onTap: onTap,

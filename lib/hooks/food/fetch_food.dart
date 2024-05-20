@@ -1,6 +1,6 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:winter_food/common/snackbar_custom.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/api_error.dart';
 import 'package:winter_food/models/food.dart';
 import 'package:winter_food/models/hooks_model/hook_result.dart';

@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/background_container.dart';
 import 'package:winter_food/common/shimmer/restaurant_vertical_shimmer.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/hooks/restaurant/fetch_all_restaurant.dart';
 import 'package:winter_food/models/restaurant.dart';
 import 'package:winter_food/views/restaurant/widgets/restaurant_tile.dart';
@@ -19,7 +20,7 @@ class AllNearbyRestaurants extends HookWidget {
     final isLoading = hookResult.isLoading;
     // final error = hookResult.error;
     return Scaffold(
-      backgroundColor: kSecondary,
+      backgroundColor: TColors.secondary,
       appBar: AppBar(
         elevation: 0.3,
         backgroundColor: kSecondary,
@@ -32,8 +33,11 @@ class AllNearbyRestaurants extends HookWidget {
             Get.back();
           },
         ),
-        title:
-            Text('Nearby Restaurants', style: TextStyle(color: Colors.white)),
+        title: Text('Nearby Restaurants',
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: TColors.white)),
         actions: [
           IconButton(
             icon: Icon(
@@ -45,7 +49,7 @@ class AllNearbyRestaurants extends HookWidget {
         ],
       ),
       body: BackgroundContainer(
-        color: Colors.white,
+        color: TColors.white,
         child: Padding(
           padding: EdgeInsets.all(8.w),
           child: isLoading

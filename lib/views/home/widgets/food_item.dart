@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import 'package:winter_food/common/sizes.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/food.dart';
 import 'package:winter_food/views/foods/food_detail.dart';
 
@@ -60,8 +61,10 @@ class FoodItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(food.title!,
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w500)),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: TColors.dark)),
                       Text(
                         '\$ ${food.price}',
                         style: TextStyle(
@@ -74,16 +77,16 @@ class FoodItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Delivery time',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: kGray,
-                              fontWeight: FontWeight.w500)),
+                      Text('Delivery time',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium!
+                              .copyWith(color: TColors.darkGrey)),
                       Text(food.time ?? 'N/A',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: kGray,
-                              fontWeight: FontWeight.w500)),
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium!
+                              .copyWith(color: TColors.darkGrey)),
                     ],
                   ),
                 ],

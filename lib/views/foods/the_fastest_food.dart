@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/background_container.dart';
 import 'package:winter_food/common/shimmer/restaurant_vertical_shimmer.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/hooks/food/fetch_all_food.dart';
 import 'package:winter_food/models/food.dart';
 import 'package:winter_food/views/foods/widgets/food_title.dart';
@@ -34,7 +35,10 @@ class TheFastestFood extends HookWidget {
         ),
         title: Text(
           'Fastest Food Closer to You',
-          style: TextStyle(color: Colors.white),
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium!
+              .copyWith(color: TColors.white),
         ),
         actions: [
           IconButton(
@@ -47,7 +51,7 @@ class TheFastestFood extends HookWidget {
         ],
       ),
       body: BackgroundContainer(
-        color: Colors.white,
+        color: TColors.white,
         child: Padding(
           padding: EdgeInsets.all(8.w),
           child: isLoading

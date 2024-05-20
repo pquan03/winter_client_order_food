@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/reusable_text.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/category.dart';
 import 'package:winter_food/views/categories/all_categories.dart';
 import 'package:winter_food/views/foods/foods_by_category.dart';

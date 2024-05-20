@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/snackbar_custom.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/api_error.dart';
 import 'package:winter_food/models/food.dart';
 import 'package:http/http.dart' as http;

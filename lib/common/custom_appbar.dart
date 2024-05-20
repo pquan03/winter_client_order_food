@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/sizes.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
+import 'package:winter_food/utils/constants/sizes.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -12,9 +14,10 @@ class CustomAppBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: WSizes.spaceBtwItems),
       height: 110.h,
       width: width,
-      color: kOffWhite,
+      color: TColors.primary,
       child: Container(
-        margin: EdgeInsets.only(top: 20.h),
+        margin: EdgeInsets.only(
+            top: TSizes.defaultSpace, bottom: TSizes.defaultSpace * 0.3),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -36,20 +39,18 @@ class CustomAppBar extends StatelessWidget {
                     children: [
                       Text(
                         'Deliver to',
-                        style: TextStyle(
-                          color: kSecondary,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(color: TColors.secondary),
                       ),
                       SizedBox(
-                        width: width * 0.65,
-                        child: Text('203 W 23rd St, New York, NY 10011',
-                            style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
-                                fontSize: 12.sp,
-                                color: kGrayLight)),
-                      )
+                          width: width * 0.65,
+                          child: Text('203 W 23rd St, New York, NY 10011',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(color: TColors.textWhite)))
                     ],
                   ),
                 ),

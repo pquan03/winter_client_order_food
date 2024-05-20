@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winter_food/common/shimmer/category_horizontal_shimmer.dart';
 import 'package:winter_food/hooks/category/fetch_categories.dart';
 import 'package:winter_food/models/category.dart';
+import 'package:winter_food/utils/constants/sizes.dart';
 import 'package:winter_food/views/home/widgets/category_item.dart';
 
 class CategoryList extends HookWidget {
@@ -27,8 +28,8 @@ class CategoryList extends HookWidget {
                 return CategoryItem(category: category);
               },
               separatorBuilder: (_, __) {
-                return SizedBox(
-                  width: 16.h,
+                return const SizedBox(
+                  width: TSizes.spaceBtwItems,
                 );
               },
               itemCount: listCategories!.length),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 
 class ReusableText extends StatelessWidget {
   const ReusableText(
@@ -15,10 +16,10 @@ class ReusableText extends StatelessWidget {
     return Text(
       maxLines: 1,
       text,
-      style: TextStyle(
-          fontSize: fontSize ?? 12.h,
-          color: color,
-          fontWeight: FontWeight.normal),
+      style: Theme.of(context).textTheme.labelMedium!.copyWith(
+          color: color ?? TColors.dark,
+          fontSize: fontSize ?? 12.sp,
+          fontWeight: FontWeight.w500),
     );
   }
 }

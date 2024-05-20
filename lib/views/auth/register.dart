@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:winter_food/common/background_container.dart';
 import 'package:winter_food/common/custom_button.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/register_controller.dart';
+import 'package:winter_food/utils/constants/sizes.dart';
 import 'package:winter_food/views/auth/widgets/auth_text_field.dart';
 
 class RegisterPage extends HookWidget {
@@ -18,21 +20,18 @@ class RegisterPage extends HookWidget {
     final controller = Get.put(RegisterController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Winter Food Family',
-          style: TextStyle(
-            color: kPrimary,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        centerTitle: true,
+        title: Text('Winter Food Family',
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                  color: TColors.primary,
+                )),
       ),
       body: BackgroundContainer(
         color: kOffWhite,
         child: SingleChildScrollView(
           child: Column(children: [
-            SizedBox(
-              height: 30.h,
+            const SizedBox(
+              height: TSizes.spaceBtwSections,
             ),
             Lottie.asset(
               'assets/anime/delivery.json',
@@ -52,8 +51,8 @@ class RegisterPage extends HookWidget {
                         color: kGray,
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
                     ),
                     AuthTextField(
                       controller: controller.usernameController,
@@ -64,8 +63,8 @@ class RegisterPage extends HookWidget {
                         color: kGray,
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
                     ),
                     AuthTextField(
                       controller: controller.passwordController,
@@ -88,8 +87,8 @@ class RegisterPage extends HookWidget {
                               ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
                     ),
                     AuthTextField(
                       controller: controller.confirmPasswordController,
@@ -112,8 +111,8 @@ class RegisterPage extends HookWidget {
                               ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
                     ),
                     CustomButton(
                       height: 40.h,

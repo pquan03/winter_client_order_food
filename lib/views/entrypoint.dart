@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/common/keep_alive_screen.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/tab_index_controller.dart';
 import 'package:winter_food/views/cart/cart_page.dart';
 import 'package:winter_food/views/home/home_page.dart';
@@ -27,7 +28,11 @@ class MainScreen extends StatelessWidget {
       () => Scaffold(
         body: Stack(
           children: [
-            pageList[controller.tabIndex],
+            PageView(
+              controller: controller.pageController,
+              onPageChanged: controller.onPageChanged,
+              children: pageList.map((e) => KeepAlivePage(child: e)).toList(),
+            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Theme(
@@ -43,6 +48,7 @@ class MainScreen extends StatelessWidget {
                       currentIndex: controller.tabIndex,
                       onTap: (value) {
                         controller.setTabIndex = value;
+                        controller.onItemTapped(value);
                       },
                       items: [
                         BottomNavigationBarItem(

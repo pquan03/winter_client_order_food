@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:winter_food/common/custom_container.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/login_controller.dart';
 import 'package:winter_food/models/login_response.dart';
+import 'package:winter_food/utils/constants/sizes.dart';
 import 'package:winter_food/views/auth/%20login_redirect.dart';
+import 'package:winter_food/views/auth/verification.dart';
 import 'package:winter_food/views/profile/widgets/profile_app_bar.dart';
+import 'package:winter_food/views/profile/widgets/profile_tile_seciton.dart';
 import 'package:winter_food/views/profile/widgets/user_info.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -23,8 +25,14 @@ class ProfilePage extends StatelessWidget {
     String? token = box.read('token');
     if (token != null) {
       user = controller.getUserInfo();
-    } else {
+    }
+
+    if (token == null) {
       return const LoginRedirect();
+    }
+
+    if (user != null && user.verification == false) {
+      return const VerificationPage();
     }
 
     return Scaffold(
@@ -69,8 +77,8 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10.h,
+            const SizedBox(
+              height: TSizes.spaceBtwSections,
             ),
             Container(
               height: 220.h,
@@ -104,43 +112,5 @@ class ProfilePage extends StatelessWidget {
             ),
           ],
         ))));
-  }
-}
-
-class ProfileTileSection extends StatelessWidget {
-  const ProfileTileSection({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.onTap,
-  });
-
-  final IconData icon;
-  final String title;
-  final void Function() onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-        onTap: onTap,
-        leading: Icon(
-          icon,
-          color: kGray,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(color: kGray, fontSize: 14.sp),
-        ),
-        trailing: title != 'Settings'
-            ? Icon(
-                Icons.arrow_forward_ios,
-                color: kGray,
-                size: 16.sp,
-              )
-            : SvgPicture.asset(
-                'assets/icons/usa.svg',
-                width: 15.w,
-                height: 25.h,
-              ));
   }
 }

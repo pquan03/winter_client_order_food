@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:winter_food/common/background_container.dart';
 import 'package:winter_food/common/custom_button.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/colors.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/login_controller.dart';
+import 'package:winter_food/utils/constants/sizes.dart';
 import 'package:winter_food/views/auth/register.dart';
 import 'package:winter_food/views/auth/widgets/auth_text_field.dart';
 
@@ -20,21 +22,18 @@ class LoginPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
-          'Winter Food Family',
-          style: TextStyle(
-            color: kPrimary,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        centerTitle: true,
+        title: Text('Winter Food Family',
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                  color: TColors.primary,
+                )),
       ),
       body: BackgroundContainer(
         color: kOffWhite,
         child: SingleChildScrollView(
           child: Column(children: [
-            SizedBox(
-              height: 30.h,
+            const SizedBox(
+              height: TSizes.spaceBtwSections,
             ),
             Lottie.asset(
               'assets/anime/delivery.json',
@@ -54,8 +53,8 @@ class LoginPage extends HookWidget {
                         color: kGray,
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
                     ),
                     AuthTextField(
                       controller: controller.passwordController,
@@ -78,8 +77,8 @@ class LoginPage extends HookWidget {
                               ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
                     ),
                     Row(
                       children: [
@@ -112,8 +111,8 @@ class LoginPage extends HookWidget {
                         )
                       ],
                     ),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
                     ),
                     CustomButton(
                       height: 40.h,

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/custom_button.dart';
-import 'package:winter_food/constants/constants.dart';
+import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/models/restaurant.dart';
 import 'package:winter_food/views/restaurant/widgets/restaurant_expore.dart';
 import 'package:winter_food/views/restaurant/widgets/restaurant_menu.dart';

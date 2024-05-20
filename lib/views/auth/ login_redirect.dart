@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:winter_food/common/custom_button.dart';
+import 'package:winter_food/utils/constants/colors.dart';
 import 'package:winter_food/views/auth/login.dart';
 
 class LoginRedirect extends StatelessWidget {
@@ -13,7 +13,14 @@ class LoginRedirect extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Please login to access this page'),
+          centerTitle: true,
+        title: Text(
+          'Please login to access this page',
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(color: TColors.secondary),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
