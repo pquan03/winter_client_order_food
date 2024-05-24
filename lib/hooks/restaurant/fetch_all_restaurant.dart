@@ -17,7 +17,6 @@ FetchHook useFetchAllRestaurants(String code) {
     try {
       Uri url = Uri.parse('$appBaseUrl/restaurant/all/$code');
       final response = await http.get(url);
-      print(response.statusCode);
       if (response.statusCode == 200) {
         listRestaurants.value = restaurantModelFromJson(response.body);
       } else {

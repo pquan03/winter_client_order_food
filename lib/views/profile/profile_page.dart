@@ -8,7 +8,7 @@ import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/login_controller.dart';
 import 'package:winter_food/models/login_response.dart';
 import 'package:winter_food/utils/constants/sizes.dart';
-import 'package:winter_food/views/auth/%20login_redirect.dart';
+import 'package:winter_food/views/auth/login_redirect.dart';
 import 'package:winter_food/views/auth/verification.dart';
 import 'package:winter_food/views/profile/widgets/profile_app_bar.dart';
 import 'package:winter_food/views/profile/widgets/profile_tile_seciton.dart';

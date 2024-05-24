@@ -6,10 +6,13 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:winter_food/common/custom_button.dart';
 import 'package:winter_food/common/view_full_screen_image.dart';
+import 'package:winter_food/controllers/login_controller.dart';
+import 'package:winter_food/models/login_response.dart';
 import 'package:winter_food/utils/constants/constants.dart';
 import 'package:winter_food/controllers/food_detail_controller.dart';
 import 'package:winter_food/hooks/restaurant/fetch_restaurant_by_id.dart';
 import 'package:winter_food/models/food.dart';
+import 'package:winter_food/views/auth/login.dart';
 import 'package:winter_food/views/auth/phone_verification.dart';
 import 'package:winter_food/views/restaurant/restaurant_page.dart';
 
@@ -22,7 +25,10 @@ class FoodDetail extends HookWidget {
   Widget build(BuildContext context) {
     final hookResult = useFetchRestaurantById(food.restaurant!);
     final controller = Get.put(FoodDetailController());
-    controller.loadAdditives(food.additives!);
+
+    LoginResponse? user;
+    final loginController = Get.put(LoginController());
+    user = loginController.getUserInfo();
     return Scaffold(
       bottomNavigationBar: Container(
         margin: EdgeInsets.only(bottom: 24.h),
@@ -48,7 +54,7 @@ class FoodDetail extends HookWidget {
                 children: [
                   IconButton(
                     onPressed: controller.decrementQuantity,
-                    icon: Icon(
+                    icon: const Icon(
                       Ionicons.ios_remove_circle,
                       color: kPrimary,
                       size: 30,
@@ -63,7 +69,7 @@ class FoodDetail extends HookWidget {
                   ),
                   IconButton(
                     onPressed: controller.incrementQuantity,
-                    icon: Icon(
+                    icon: const Icon(
                       Ionicons.ios_add_circle,
                       color: kPrimary,
                       size: 30,
@@ -73,7 +79,19 @@ class FoodDetail extends HookWidget {
               ),
               CustomButton(
                 onTap: () {
-                  showVertificationPhoneSheet(context);
+                  if (user == null) {
+                    Get.to(() => const LoginPage());
+                  } else if (user.phoneVerification == false) {
+                    showVertificationPhoneSheet(context);
+                  } else {
+                    Get.snackbar(
+                      'Success',
+                      'Added to cart',
+                      snackPosition: SnackPosition.BOTTOM,
+                      backgroundColor: kPrimary,
+                      colorText: Colors.white,
+                    );
+                  }
                 },
                 text: 'Add to Cart',
                 color: kPrimary,
@@ -148,7 +166,7 @@ class FoodDetail extends HookWidget {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Ionicons.chevron_back_circle,
                         color: kPrimary,
                         size: 40,
@@ -316,27 +334,9 @@ class FoodDetail extends HookWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      TextField(
+                      const TextField(
                         decoration: InputDecoration(
                           hintText: 'Add a note to your chef',
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: kPrimary,
-                            ),
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r),
-                            borderSide: BorderSide(width: 1, color: kPrimary),
-                          ),
-                          disabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r),
-                            borderSide: BorderSide(width: 1, color: kPrimary),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.r),
-                            borderSide: BorderSide(width: 1, color: kPrimary),
-                          ),
                         ),
                       ),
                     ],
@@ -362,7 +362,7 @@ class FoodDetail extends HookWidget {
             height: 500,
             width: width,
             decoration: BoxDecoration(
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage('assets/images/restaurant_bk.png'),
                 fit: BoxFit.fill,
               ),
@@ -405,7 +405,7 @@ class FoodDetail extends HookWidget {
                                 color: kGray,
                               ),
                             ),
-                            leading: Icon(
+                            leading: const Icon(
                               Ionicons.ios_checkmark_circle,
                               color: kPrimary,
                             ),

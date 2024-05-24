@@ -74,7 +74,6 @@ class LoginController extends GetxController {
         box.write('userId', dataResponse.id);
         box.write('verification', dataResponse.verification);
 
-        isLoading.value = false;
 
         WLoader.successSnackBar(
             title: 'You are logged in',
@@ -91,8 +90,9 @@ class LoginController extends GetxController {
         WLoader.errorSnackBar(title: 'Error', message: error.message);
       }
     } catch (err) {
-      isLoading.value = false;
       debugPrint(err.toString());
+    } finally {
+      isLoading.value = false;
     }
   }
 
@@ -112,5 +112,6 @@ class LoginController extends GetxController {
     if (data != null) {
       return loginResponseFromJson(data);
     }
+    return null;
   }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>470490072707-t8kusseia9o3mk3qq4rdhbio23eatol1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.470490072707-t8kusseia9o3mk3qq4rdhbio23eatol1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDZ-_oidveeR1yOEYMwOO4yiLwZiTB-f1A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>470490072707</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterFoodBk</string>
+	<key>PROJECT_ID</key>
+	<string>winter-food</string>
+	<key>STORAGE_BUCKET</key>
+	<string>winter-food.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:470490072707:ios:88b5c1a7aa57a026d7bdb6</string>
+</dict>
+</plist>

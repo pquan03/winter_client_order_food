@@ -27,10 +27,10 @@ class FoodItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: kLightWhite,
           borderRadius: BorderRadius.circular(WSizes.spaceBtwItems.r),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: kGrayLight,
-              offset: const Offset(0, 2),
+              offset: Offset(0, 2),
               blurRadius: 4,
             )
           ],

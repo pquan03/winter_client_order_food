@@ -1,6 +1,6 @@
 {
-    "name": "winter_food",
-    "short_name": "winter_food",
+    "name": "flutter_food_bk",
+    "short_name": "flutter_food_bk",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

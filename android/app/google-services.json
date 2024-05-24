@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "470490072707",
+    "project_id": "winter-food",
+    "storage_bucket": "winter-food.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470490072707:android:0bfac1d145ebe86bd7bdb6",
+        "android_client_info": {
+          "package_name": "com.winterfood.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470490072707-v2hrfb2qdoct9m1t1ut7ucp6k7dnbqit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD3VIbA9LBFGGF0vWjQ5BFGnxhXc-EFZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470490072707-v2hrfb2qdoct9m1t1ut7ucp6k7dnbqit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

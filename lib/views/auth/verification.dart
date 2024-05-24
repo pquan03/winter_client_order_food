@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:winter_food/common/custom_button.dart';
+import 'package:winter_food/controllers/verification_controller.dart';
 import 'package:winter_food/utils/constants/colors.dart';
 import 'package:winter_food/utils/constants/sizes.dart';
 
@@ -11,6 +13,7 @@ class VerificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerificationController());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -71,7 +74,9 @@ class VerificationPage extends StatelessWidget {
                     //handle validation or checks here if necessary
                   },
                   //runs when every textfield is filled
-                  onSubmit: (String verificationCode) {},
+                  onSubmit: (String verificationCode) {
+                    controller.verificationCode = verificationCode;
+                  },
                 ),
                 const SizedBox(
                   height: TSizes.spaceBtwSections,
@@ -79,7 +84,7 @@ class VerificationPage extends StatelessWidget {
                 CustomButton(
                   text: 'V E R I F Y  A C C O U N T',
                   height: 40.h,
-                  onTap: () {},
+                  onTap: controller.verifyWithCode,
                 )
               ],
             ),

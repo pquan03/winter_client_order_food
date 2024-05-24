@@ -9,7 +9,7 @@ class TTextFormFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: TColors.darkGrey,
     suffixIconColor: TColors.darkGrey,
-    // constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
+    constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
     labelStyle: const TextStyle()
         .copyWith(fontSize: TSizes.fontSizeMd, color: TColors.black),
     hintStyle: const TextStyle()
@@ -43,7 +43,7 @@ class TTextFormFieldTheme {
     errorMaxLines: 2,
     prefixIconColor: TColors.darkGrey,
     suffixIconColor: TColors.darkGrey,
-    // constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
+    constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
     labelStyle: const TextStyle()
         .copyWith(fontSize: TSizes.fontSizeMd, color: TColors.white),
     hintStyle: const TextStyle()
